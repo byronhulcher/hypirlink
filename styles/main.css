@@ -1,0 +1,28 @@
+body {
+    max-width: 35em;
+    margin: 0 auto;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('//38.media.tumblr.com/tumblr_lnighmDF9I1qzpy7ko1_r1_500.gif');
+    background-size: cover;
+}
+
+h1, div {
+  background: #FFF;
+  display: inline-block;
+}
+
+#background-attribution {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+}
+a {
+  position: relative;
+}
+
+a:link, a:visited {
+color: blue;
+}
