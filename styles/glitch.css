@@ -3,6 +3,8 @@
   color: Chartreuse;
   background-color: Coral;
   white-space: nowrap;
+  border-left: 2px solid Coral;
+  border-right: 2px solid Coral;
 }
 
 .glitch:hover:after {
@@ -21,7 +23,7 @@
 .glitch:hover:before {
   content: attr(data-glitch-text);
   position: absolute;
-  left: -1px;
+  left: -2px;
   text-shadow: 1px 0 blue;
   top: 0;
   color: Chartreuse;
