@@ -4,38 +4,33 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <meta name="description" content="Welcome to hypir.link! For online communication and updates please refer to @hypirlink.">
   
-  <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
-  <script src='jquery.keyframes.min.js'></script>
+  <script src='//s.codepen.io/assets/libs/prefixfree.min.js'></script>
+
   <script>
-    $(document).ready(function(){
-      var redNoiseKeyframe = {
-        name: 'noise-anim'
-      };
-      var blueNoiseKeyframe = {
-        name: 'noise-anim-2'
-      };
-      for (var i = 0; i <= 100; i+= 5){
-        redNoiseKeyframe[i.toString()+"%"] = {
-          "clip": "rect(" + Math.floor(Math.random()*100).toString() + "px, 999px, " + Math.floor(Math.random()*100).toString() + "px, 0)"
-        }
-        blueNoiseKeyframe[i.toString()+"%"] = {
-          "clip": "rect(" + Math.floor(Math.random()*100).toString() + "px, 999px, " + Math.floor(Math.random()*100).toString() + "px, 0)"
-        }
-      };
-      $.keyframe.define([redNoiseKeyframe]);
-      $.keyframe.define([blueNoiseKeyframe]);
-      $("<style>")
-        .prop("type", "text/css")
-        .html("\
-              .glitch:hover:after {\
-                  animation: noise-anim " + ((Math.random()*1.5)+2.5).toString() + "s infinite linear alternate-reverse;\
-              }\
-              .glitch:hover:before {\
-                  animation: noise-anim-2 " + ((Math.random()*1)+2).toString() + "s infinite linear alternate-reverse;\
-              }\
-              ").appendTo("head");
-    });
+    redNoiseKeyframeHTML ="@keyframes noise-anim {";
+    blueNoiseKeyframeHTML ="@keyframes noise-anim-2 {";
+    
+    for (var i = 0; i <= 100; i+= 5){
+      redNoiseKeyframeHTML += i.toString()+"% { clip: rect(" + Math.floor(Math.random()*100).toString() + "px, 999px, " + Math.floor(Math.random()*100).toString() + "px, 0); }";
+      blueNoiseKeyframeHTML += i.toString()+"% { clip: rect(" + Math.floor(Math.random()*100).toString() + "px, 999px, " + Math.floor(Math.random()*100).toString() + "px, 0); }";
+    };
+
+    redNoiseKeyframeHTML += "}";
+    blueNoiseKeyframeHTML += "}";
+
+    var animationHTML = "\
+      .glitch:hover:after {\
+          animation: noise-anim " + ((Math.random()*1.5)+2.5).toString() + "s infinite linear alternate-reverse;\
+      }\
+      .glitch:hover:before {\
+          animation: noise-anim-2 " + ((Math.random()*1)+2).toString() + "s infinite linear alternate-reverse;\
+      }";
+
+    var style = document.createElement("style");
+    style.innerHTML = redNoiseKeyframeHTML + blueNoiseKeyframeHTML + animationHTML
+    document.getElementsByTagName('head')[0].appendChild(style);
   </script>
+  
   <link rel='stylesheet' href='styles/main.css'>
   <link rel='stylesheet' href='styles/glitch.css'>
 
