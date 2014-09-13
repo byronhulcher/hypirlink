@@ -7,23 +7,25 @@
   <script src='//s.codepen.io/assets/libs/prefixfree.min.js'></script>
 
   <script>
-    redNoiseKeyframeHTML ="@keyframes noise-anim {";
-    blueNoiseKeyframeHTML ="@keyframes noise-anim-2 {";
+    redNoiseKeyframeHTML ="@keyframes red-anim {";
+    blueNoiseKeyframeHTML ="@keyframes blue-anim {";
     
+    var glitchHeight = 36;
     for (var i = 0; i <= 100; i+= 5){
-      redNoiseKeyframeHTML += i.toString()+"% { clip: rect(" + Math.floor(Math.random()*100).toString() + "px, 999px, " + Math.floor(Math.random()*100).toString() + "px, 0); }";
-      blueNoiseKeyframeHTML += i.toString()+"% { clip: rect(" + Math.floor(Math.random()*100).toString() + "px, 999px, " + Math.floor(Math.random()*100).toString() + "px, 0); }";
+      redNoiseKeyframeHTML += i.toString()+"% { clip: rect(" + Math.floor(Math.random()*glitchHeight).toString() + "px, 999px, " + Math.floor(Math.random()*glitchHeight).toString() + "px, 0); }";
+      blueNoiseKeyframeHTML += i.toString()+"% { clip: rect(" + Math.floor(Math.random()*glitchHeight).toString() + "px, 999px, " + Math.floor(Math.random()*glitchHeight).toString() + "px, 0); }";
     };
 
     redNoiseKeyframeHTML += "}";
     blueNoiseKeyframeHTML += "}";
 
+
     var animationHTML = "\
       .glitch:hover:after {\
-          animation: noise-anim " + ((Math.random()*1.5)+2.5).toString() + "s infinite linear alternate-reverse;\
+          animation: red-anim " + ((Math.random()*1.5)+2.5).toString() + "s infinite linear alternate-reverse;\
       }\
       .glitch:hover:before {\
-          animation: noise-anim-2 " + ((Math.random()*1)+2).toString() + "s infinite linear alternate-reverse;\
+          animation: blue-anim " + ((Math.random()*1)+2).toString() + "s infinite linear alternate-reverse;\
       }";
 
     var style = document.createElement("style");
@@ -63,7 +65,7 @@
 
   <div id="background-attribution">
     background by 
-    <a class="" href="//www.flickr.com/photos/max-capacity/5881166113/in/photostream" target="_blank" data-glitch-text="Max Capacity">Max Capacity</a>
+    <a class="glitch" href="//www.flickr.com/photos/max-capacity/5881166113/in/photostream" target="_blank" data-glitch-text="Max Capacity">Max Capacity</a>
   </div>
 </body>
 </html>
