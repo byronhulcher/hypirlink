@@ -1,4 +1,4 @@
-# (hyper.link)[http://hyper.link]
+# [hypir.link](http://hypir.link)
 ==================
 
-Front-end code for whatever is hanging out at (http://hyper.link)[http://hyper.link]
+Front-end code for whatever is hanging out at [http://hypir.link](http://hypir.link)
